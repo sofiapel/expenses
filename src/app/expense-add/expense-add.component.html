@@ -1,0 +1,15 @@
+<form [formGroup]="myForm" (ngSubmit)="enviar()">
+    <p>Título</p>
+    <input type="text" formControlName="title"/>
+    <p *ngIf="title!.invalid && title!.touched"> Debes completar este campo</p>
+    <p>Monto</p>
+    <p-inputNumber inputId="currency-ar" formControlName="amount" mode="currency" currency="ARS" locale="es-AR"></p-inputNumber>
+    <p *ngIf="amount!.invalid && amount!.touched"> Debes completar este campo</p>
+    <p>Decripción</p>
+    <input type="text" formControlName="description"/> 
+    <p *ngIf="description!.invalid && description!.touched"> Debes completar este campo</p>
+
+
+    <button [disabled]="myForm.invalid">Enviar</button>
+
+</form>
