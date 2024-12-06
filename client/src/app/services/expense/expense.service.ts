@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Expense } from '../../interfaces/expense.interface'
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ExpenseService {
   private url: string;
@@ -12,12 +14,14 @@ export class ExpenseService {
     this.url = 'https://jsonplaceholder.typicode.com/todos'
   }
 
-  getAll(): Observable<Expense>{
-    return this.http.get<Expense>(`${this.url}`)
+  getAll(): Observable<Expense[]>
+  {
+    return this.http.get<Expense[]>(`${this.url}`)
   }
 
-  getById(id:number): Observable<Expense>{
-    return this.http.get<Expense>(`${this.url}/${id}`)
+  getById(id:number)//: Observable<Expense>
+  {
+    //return this.http.get/*<Expense>*/(`${this.url}/${id}`)
 
   }
 }

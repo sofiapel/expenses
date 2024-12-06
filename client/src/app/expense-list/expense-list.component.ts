@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ExpenseService } from '../services/expense/expense.service';
 import { Subscription } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Expense } from '../interfaces/expense.interface';
 
 @Component({
   selector: 'app-expense-list',
@@ -11,12 +13,17 @@ import { Subscription } from 'rxjs';
   styleUrl: './expense-list.component.css'
 })
 export class ExpenseListComponent implements OnInit, OnDestroy {
-  //expenses: Expense[];
+  expenses: Expense[] = [];
   constructor(private service: ExpenseService){}
   subscription!: Subscription
   ngOnInit(): void {
     this.subscription = this.service.getAll().subscribe({
-      
+      next: (exp) => { 
+        console.log(exp)
+        console.log(typeof(exp))
+        this.expenses = exp
+      },
+      error: (err) => console.error(err)
     })
   }
   ngOnDestroy(): void {

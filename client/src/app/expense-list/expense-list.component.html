@@ -1,0 +1,12 @@
+<ul>
+    @for (expense of (expenses); track expense.id) {
+     <!-- <li><a routerLink="/detail/{{ expense.id }}">{{ expense.title }} {{ expense.amount}} {{ expense.description}} </a></li>-->
+        <li>{{ expense.title }}</li>
+    }
+</ul>
+
+<p>Gasto 1</p>
+<p>Gasto 2</p>
+<p>Gasto 3</p>
+
+<router-outlet></router-outlet>
