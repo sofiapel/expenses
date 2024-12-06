@@ -1,6 +1,11 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 /client/node_modules
 /client/dist
+/client/package-lock.json
+
+/api/node_modules
+/api/dist
+/api/package-lock.json
 # Compiled output
 /dist
 /tmp
