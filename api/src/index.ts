@@ -1,9 +1,12 @@
 import express, { json } from "express";
 import dotenv from "dotenv"
-import loginRouter from "./routes/login-route"
 import sequelize from "./repositories/index"
-import User from "./repositories/usuario";
 import cors from "cors";
+
+import expenseRouter from "./routes/expense-route" 
+import loginRouter from "./routes/login-route"
+import Expense from "./repositories/expense";
+import User from "./repositories/user";
 
 dotenv.config()
 const app = express() 
@@ -15,11 +18,10 @@ app.use(json())
 
 
 app.use("/auth", loginRouter);
+app.use("/expense", expenseRouter);
 
 
-app.get("/hello",(req, res)=> {
-    res.send("Hello desde el server")
-})
+
 
 app.listen(port, () => {
     console.info(`Server listening in port ${port}`)
@@ -29,8 +31,11 @@ const syncDatabase = async () => {
   try {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
-
+    
     await sequelize.sync({ alter: true}); // force: true borra y recrea las tablas
+    
+    await Expense.create({ title: "a", amount: 2 });
+
     console.log('Database & tables created!');
     
   } catch (error) {

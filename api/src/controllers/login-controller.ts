@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from 'bcrypt';
-import User from "../repositories/usuario"; // Asegúrate de que esta ruta es correcta
+import User from "../repositories/user"; 
 import dotenv from "dotenv"
 dotenv.config()
 
@@ -22,12 +22,18 @@ export const loginUser = async (
       }
     })
 
-    console.log(userN);
-    const equalPassword = await bcrypt.compare(userN?.dataValues.password,password)
+    if(!userN){
+      return res.status(401).json({ message: "Username not found" });
+    }
 
+    console.log(userN);
+
+    const equalPassword = await bcrypt.compare(password,userN?.dataValues.password)
+
+    console.log(equalPassword)
     
 
-    if (username === "admin" && password === "123") {
+    if (equalPassword) {
       const token = jwt.sign({ username }, process.env.JWT_SECRET!, { expiresIn: "1h" });
       return res.status(200).json({ token });
     } else {

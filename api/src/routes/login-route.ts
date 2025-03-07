@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import express from "express";
 import { loginUser, register } from "../controllers/login-controller";
 import asyncMiddleware from "../middlewares/async.middleware";
 const router = express.Router();
