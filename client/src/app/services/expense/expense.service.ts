@@ -10,8 +10,7 @@ import { Expense } from '../../interfaces/expense.interface'
 export class ExpenseService {
   private url: string;
   constructor(private http: HttpClient) { 
-    //this.url = "http://localhost:8080/expense"
-    this.url = 'https://jsonplaceholder.typicode.com/todos'
+    this.url = "http://localhost:3000/expense/user/2"
   }
 
   getAll(): Observable<Expense[]>

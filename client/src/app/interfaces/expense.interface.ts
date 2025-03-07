@@ -2,10 +2,9 @@ export interface Expense {
     id: number;
     userId: number;
     title: string;
-    completed: boolean
-    //amount: number;
-    //description: string; 
-    //Text;
-    //tipo;
+    amount: number;
+    description: string; 
+    date: Date;
+    isDeleted: boolean;
 
 }

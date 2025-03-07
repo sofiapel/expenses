@@ -18,10 +18,8 @@ export class ExpenseListComponent implements OnInit, OnDestroy {
   subscription!: Subscription
   ngOnInit(): void {
     this.subscription = this.service.getAll().subscribe({
-      next: (exp) => { 
-        console.log(exp)
-        console.log(typeof(exp))
-        this.expenses = exp
+      next: (exp:any) => { 
+        this.expenses = exp.data
       },
       error: (err) => console.error(err)
     })
