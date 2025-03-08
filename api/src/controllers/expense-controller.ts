@@ -8,9 +8,8 @@ export const getOne = async (
 ) => {
   try {
     const expense = await Expense.findOne({
-      where: { id: req.params.id, isDeleted:false },
+      where: { id: req.params.id, isDeleted:false },  order: [["date", "DESC"]],
     });
-    console.log(expense);
     res.status(200).json({ data: expense });
   } catch (error: any) {
     res.status(500).json({ message: 'Internal server error' });
@@ -25,7 +24,7 @@ export const getExpensesByUser = async (
 ) => {
   try {
     const expenses = await Expense.findAll({
-      /*where: { idUser: req.params.idUser },*/
+      where: { /*idUser: req.params.idUser,*/ isDeleted:false },order: [["date", "DESC"]],
     });
     res.status(200).json({ data: expenses });
   } catch (error: any) {
@@ -52,8 +51,9 @@ export const updateExpense = async (
   next: NextFunction
 ) => {
   try {
-    const updatedExpense:any = []
-    res.status(201).json({ message: "Data actualizada exitosamente", data:updatedExpense });
+    const [_,updatedExpense] = await Expense.update(req.body, { where: { id: req.params.id, isDeleted:false }, returning:true });
+
+    res.status(200).json({ message: "Data actualizada exitosamente", data:updatedExpense[0] });
   } catch (error: any) {
     res.status(500).json({ message: 'Internal server error' });
   }

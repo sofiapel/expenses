@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/:id",asyncMiddleware(getOne));
 router.get("/user/:idUser",asyncMiddleware(getExpensesByUser));
 router.post("/",asyncMiddleware(createExpense));
-router.put("/",asyncMiddleware(updateExpense));
+router.put("/:id",asyncMiddleware(updateExpense));
 
 
 
