@@ -8,19 +8,23 @@ import { Expense } from '../../interfaces/expense.interface'
   providedIn: 'root',
 })
 export class ExpenseService {
-  private url: string;
+  private baseUrl: string;
   constructor(private http: HttpClient) { 
-    this.url = "http://localhost:3000/expense/user/2"
+    this.baseUrl = "http://localhost:3000"
   }
 
   getAll(): Observable<Expense[]>
   {
-    return this.http.get<Expense[]>(`${this.url}`)
+    return this.http.get<Expense[]>(`${this.baseUrl}/expense/user/2`)
   }
 
   getById(id:number)//: Observable<Expense>
   {
     //return this.http.get/*<Expense>*/(`${this.url}/${id}`)
 
+  }
+
+  create(expense: Expense): Observable<Expense> {
+    return this.http.post<Expense>(`${this.baseUrl}/expense`, expense);
   }
 }

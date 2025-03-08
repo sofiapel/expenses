@@ -25,7 +25,6 @@ export class ExpenseListComponent implements OnInit, OnDestroy {
     this.subscription = this.service.getAll().subscribe({
       next: (exp:any) => { 
         this.expenses = exp.data
-        console.log(exp)
       },
       error: (err) => console.error(err)
     })

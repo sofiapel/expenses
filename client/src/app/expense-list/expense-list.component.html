@@ -1,23 +1,25 @@
 <div class="card">
-
-<p-table [value]="expenses" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="expenses" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
-        <tr>
-            <th>Gasto</th>
-            <th>Monto</th>
-            <th>Fecha</th>
-            <th><p-button label="Agregar gasto" /></th>
-        </tr>
+      <tr>
+        <th>Gasto</th>
+        <th>Monto</th>
+        <th>Fecha</th>
+        <th>
+          <p-button label="Agregar gasto" [routerLink]="['/expense/add']" />
+        </th>
+      </tr>
     </ng-template>
     <ng-template pTemplate="body" let-expense>
-        <tr>
-            <td>{{ expense.title }}</td>
-            <td>{{ expense.amount }}</td>
-            <td>{{ expense.title }}</td>
-            <td><p-button icon="pi pi-eye" /></td>
-        </tr>
+      <tr>
+        <td>{{ expense.title }}</td>
+        <td>{{ expense.amount }}</td>
+        <td>{{ expense.title }}</td>
+        <td><p-button icon="pi pi-eye" /></td>
+      </tr>
     </ng-template>
-</p-table></div>
+  </p-table>
+</div>
 
 <!--
 <table>
