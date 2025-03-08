@@ -8,7 +8,7 @@ export const getOne = async (
 ) => {
   try {
     const expense = await Expense.findOne({
-      where: { id: req.params.id },
+      where: { id: req.params.id, isDeleted:false },
     });
     console.log(expense);
     res.status(200).json({ data: expense });
@@ -29,7 +29,7 @@ export const getExpensesByUser = async (
     });
     res.status(200).json({ data: expenses });
   } catch (error: any) {
-    console.error("Error in register:", error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
@@ -39,20 +39,23 @@ export const createExpense = async (
   next: NextFunction
 ) => {
   try {
-    res.status(201).json({ message: "OK" });
+    const newExpense = await Expense.create(req.body)
+    res.status(201).json({ message: "Data creada exitosamente", data: newExpense });
   } catch (error: any) {
-    console.error("Error in register:", error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
-export const deleteExpense = async (
+export const updateExpense = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    res.status(201).json({ message: "OK" });
+    const updatedExpense:any = []
+    res.status(201).json({ message: "Data actualizada exitosamente", data:updatedExpense });
   } catch (error: any) {
-    console.error("Error in register:", error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
+

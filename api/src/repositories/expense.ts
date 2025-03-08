@@ -19,7 +19,6 @@ Expense.init(
       type: new DataTypes.STRING(128),
       allowNull: true,
     },
-    //desp hacer una tabla statusType
     type: {
       type: new DataTypes.STRING(128),
       allowNull: true,
@@ -28,13 +27,21 @@ Expense.init(
       type: new DataTypes.STRING(128),
       allowNull: false,
     },
+    isDeleted: {
+      type: new DataTypes.BOOLEAN,
+      defaultValue:false
+    },
+    date: {
+      type: new DataTypes.DATE,
+      defaultValue: new Date()
+
+    },
     userId: { 
       type: DataTypes.INTEGER, 
       references: {
         model: User, 
         key: "id" 
       } },
-    // en caso de type cuota agregar campos
   },
   {
     tableName: "expenses",
