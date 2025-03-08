@@ -1,9 +1,9 @@
 import {
   BaseComponent
-} from "./chunk-ZPA4U7NJ.js";
+} from "./chunk-4QHM7TUK.js";
 import {
   BaseStyle
-} from "./chunk-I4NER624.js";
+} from "./chunk-MIUQYFVA.js";
 import {
   SharedModule,
   addClass,
@@ -19,7 +19,7 @@ import {
   remove,
   removeClass,
   uuid
-} from "./chunk-PLPT2FV6.js";
+} from "./chunk-BO6WFU4M.js";
 import {
   CommonModule,
   DOCUMENT,
@@ -28,7 +28,7 @@ import {
   NgStyle,
   NgTemplateOutlet,
   isPlatformBrowser
-} from "./chunk-5UDK7ABK.js";
+} from "./chunk-YIQKD3QP.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -90,7 +90,7 @@ import {
   ɵɵtemplate,
   ɵɵtext,
   ɵɵtextInterpolate
-} from "./chunk-SLFMBYBS.js";
+} from "./chunk-43623GOX.js";
 
 // node_modules/primeng/fesm2022/primeng-dom.mjs
 var DomHandler = class _DomHandler {
@@ -7080,6 +7080,8 @@ export {
   SpinnerIcon,
   TimesIcon,
   TrashIcon,
+  WindowMaximizeIcon,
+  WindowMinimizeIcon,
   Ripple,
   ButtonStyle,
   ButtonClasses,
@@ -7089,4 +7091,4 @@ export {
   Button,
   ButtonModule
 };
-//# sourceMappingURL=chunk-VAMJJL7L.js.map
+//# sourceMappingURL=chunk-GJRNMI6H.js.map

@@ -14,16 +14,15 @@ import {
   setAttributes,
   toKebabCase,
   toTokenKey
-} from "./chunk-PLPT2FV6.js";
+} from "./chunk-BO6WFU4M.js";
 import {
   DOCUMENT
-} from "./chunk-5UDK7ABK.js";
+} from "./chunk-YIQKD3QP.js";
 import {
   APP_INITIALIZER,
   Injectable,
   InjectionToken,
   PLATFORM_ID,
-  Subject,
   effect,
   inject,
   makeEnvironmentProviders,
@@ -32,7 +31,10 @@ import {
   untracked,
   ɵɵdefineInjectable,
   ɵɵgetInheritedFactory
-} from "./chunk-SLFMBYBS.js";
+} from "./chunk-43623GOX.js";
+import {
+  Subject
+} from "./chunk-ZSY7TSMJ.js";
 import {
   __spreadValues
 } from "./chunk-WDMUDEB6.js";
@@ -1464,4 +1466,4 @@ export {
   PRIME_NG_CONFIG,
   providePrimeNG
 };
-//# sourceMappingURL=chunk-I4NER624.js.map
+//# sourceMappingURL=chunk-MIUQYFVA.js.map

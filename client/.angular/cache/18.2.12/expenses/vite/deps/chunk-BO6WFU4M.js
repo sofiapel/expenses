@@ -1,13 +1,12 @@
 import {
   CommonModule
-} from "./chunk-5UDK7ABK.js";
+} from "./chunk-YIQKD3QP.js";
 import {
   Component,
   Directive,
   Injectable,
   Input,
   NgModule,
-  Subject,
   TemplateRef,
   setClassMetadata,
   ɵsetClassDebugInfo,
@@ -20,7 +19,10 @@ import {
   ɵɵprojection,
   ɵɵprojectionDef,
   ɵɵsetNgModuleScope
-} from "./chunk-SLFMBYBS.js";
+} from "./chunk-43623GOX.js";
+import {
+  Subject
+} from "./chunk-ZSY7TSMJ.js";
 
 // node_modules/@primeuix/utils/dom/index.mjs
 function hasClass(element, className) {
@@ -245,6 +247,15 @@ function setAttributes(element, attributes = {}) {
     });
   }
 }
+function createElement(type, attributes = {}, ...children) {
+  if (type) {
+    const element = document.createElement(type);
+    setAttributes(element, attributes);
+    element.append(...children);
+    return element;
+  }
+  return void 0;
+}
 function fadeIn(element, duration) {
   if (element) {
     element.style.opacity = "0";
@@ -395,6 +406,9 @@ function getWidth(element) {
 }
 function isVisible(element) {
   return !!(element && element.offsetParent != null);
+}
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window["MSStream"];
 }
 function isTouchDevice() {
   return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
@@ -1642,6 +1656,7 @@ export {
   relativePosition,
   appendChild,
   setAttributes,
+  createElement,
   fadeIn,
   find,
   findSingle,
@@ -1657,6 +1672,7 @@ export {
   getTargetElement,
   getWidth,
   isVisible,
+  isIOS,
   isTouchDevice,
   remove,
   removeChild,
@@ -1699,4 +1715,4 @@ export {
   TranslationKeys,
   TreeDragDropService
 };
-//# sourceMappingURL=chunk-PLPT2FV6.js.map
+//# sourceMappingURL=chunk-BO6WFU4M.js.map

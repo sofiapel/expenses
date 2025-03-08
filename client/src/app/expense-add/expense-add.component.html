@@ -2,7 +2,6 @@
 
 <form [formGroup]="myForm" (ngSubmit)="enviar()">
     <p>Título</p>
-    <!--<input type="text" formControlName="title"/>-->
     <input pInputText formControlName="title" />
     <p *ngIf="title!.invalid && title!.touched"> Debes completar este campo</p>
     <p>Monto</p>
@@ -17,7 +16,7 @@
 
 
 
-    <p-button [disabled]="myForm.invalid" >Enviar</p-button>
+    <p-button [disabled]="myForm.invalid" type="submit" >Enviar</p-button>
 
 </form>
 <router-outlet></router-outlet>

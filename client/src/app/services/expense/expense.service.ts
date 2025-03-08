@@ -18,13 +18,17 @@ export class ExpenseService {
     return this.http.get<Expense[]>(`${this.baseUrl}/expense/user/2`)
   }
 
-  getById(id:number)//: Observable<Expense>
+  getById(id:string)/*: Observable<Expense>*/
   {
-    //return this.http.get/*<Expense>*/(`${this.url}/${id}`)
+    return this.http.get/*<Expense>*/(`${this.baseUrl}/expense/${id}`)
 
   }
 
   create(expense: Expense): Observable<Expense> {
     return this.http.post<Expense>(`${this.baseUrl}/expense`, expense);
+  }
+
+  updateById(id: string, body:any){
+    return this.http.put(`${this.baseUrl}/expense/${id}`,body)
   }
 }

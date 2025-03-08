@@ -1,1 +1,23 @@
-<p>expense-detail works!</p>
+<p-button label="Volver" [routerLink]="['/expense']" />
+<div class="card-container" *ngIf="expense">
+  <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+    <ng-template #title>{{ expense.title }} {{ expense.date | date:'dd/MM/yyyy' }}</ng-template>
+    <ng-template #subtitle> {{ expense.amount | currency }} </ng-template>
+    <p>
+      {{ expense.description }}
+    </p>
+    <ng-template #footer>
+      <div class="flex gap-4 mt-1">
+        <p-confirmPopup></p-confirmPopup>
+        <p-button (click)="confirm($event,expense.id)" 
+        icon="pi pi-trash" label="Eliminar"
+        severity="secondary"
+        class="w-full"
+        [outlined]="true"
+        styleClass="p-button-danger"
+        ></p-button>
+        <p-button label="Actualizar" class="w-full" styleClass="w-full" [routerLink]="['/expense']"/>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
