@@ -23,9 +23,11 @@ export const getExpensesByUser = async (
   next: NextFunction
 ) => {
   try {
+    console.log(req.params)
     const expenses = await Expense.findAll({
-      where: { /*idUser: req.params.idUser,*/ isDeleted:false },order: [["date", "DESC"]],
+      where: { userId: req.params.idUser, isDeleted:false },order: [["date", "DESC"]],
     });
+    console.log(expenses)
     res.status(200).json({ data: expenses });
   } catch (error: any) {
     res.status(500).json({ message: 'Internal server error' });

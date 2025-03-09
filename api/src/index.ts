@@ -32,10 +32,8 @@ const syncDatabase = async () => {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
     
-    await sequelize.sync({ alter: true}); // force: true borra y recrea las tablas
+    await sequelize.sync({ alter: true}); 
     
-    await Expense.create({ title: "a", amount: 2 });
-
     console.log('Database & tables created!');
     
   } catch (error) {
