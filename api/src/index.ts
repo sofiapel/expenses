@@ -16,8 +16,8 @@ const port  = process.env.PORT ||"4444";
 app.use(cors())
 app.use(json())
 
-app.use("apiv2/auth", loginRouter);
-app.use("apiv2/expense", expenseRouter);
+app.use("/apiv2/auth", loginRouter);
+app.use("/apiv2/expense", expenseRouter);
 
 
 
