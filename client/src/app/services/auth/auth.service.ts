@@ -19,4 +19,9 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/register`, body)
   }
 
+  saveLocalStorage(key:string, value: any){
+    localStorage.setItem(key, value);
+  }
+
+
 }

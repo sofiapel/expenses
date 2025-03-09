@@ -52,11 +52,11 @@ export class ExpenseDetailComponent implements OnInit, OnDestroy {
           this.service.updateById(id,{ isDeleted: true }).subscribe({
             next: (exp:any) => { 
               this.expense = exp.data
+              this.router.navigate(["expense"])        
             },
             error: (err) => console.error(err)
           })
         )
-        this.router.navigate(["expense"])        
       },
       reject: () => {
       }

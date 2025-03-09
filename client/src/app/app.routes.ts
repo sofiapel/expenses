@@ -5,7 +5,8 @@ import { ExpenseDetailComponent } from './expense-detail/expense-detail.componen
 import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: LoginComponent },
   {
     path: 'expense',
     children: [

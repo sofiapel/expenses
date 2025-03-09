@@ -30,15 +30,26 @@
         </div>
         <div class="flex">
           <p-button
-            label="Login"
-            icon="pi pi-user"
-            class="w-full max-w-[17.35rem]"
-            styleClass="w-full mx-auto"
-            [disabled]="myForm.invalid"
-            type="submit"
+          [label]="!isRegister ? 'Iniciar sesión' : 'Registrarse'"          
+          icon="pi pi-user"
+          class="w-full max-w-[17.35rem]"
+          styleClass="w-full mx-auto"
+          [disabled]="myForm.invalid"
+          type="submit"
           />
+          <p *ngIf="!isRegister" [routerLink]="['/register']">Registrarse</p>
+          <!--
+            <p-button
+            label="Registrarse"
+            (click)="registerButton()"
+              icon="pi pi-user"
+              class="w-full max-w-[17.35rem]"
+              styleClass="w-full mx-auto"
+            />
+          -->
         </div>
       </div>
     </div>
   </form>
 </div>
+

@@ -22,7 +22,7 @@ export class ExpenseListComponent implements OnInit, OnDestroy {
   constructor(private service: ExpenseService){}
   subscription!: Subscription
   ngOnInit(): void {
-    this.subscription = this.service.getAll().subscribe({
+    this.subscription = this.service.getAllByUser().subscribe({
       next: (exp:any) => { 
         this.expenses = exp.data
       },

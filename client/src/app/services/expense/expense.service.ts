@@ -1,34 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Expense } from '../../interfaces/expense.interface'
-
+import { Expense } from '../../interfaces/expense.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExpenseService {
   private baseUrl: string;
-  constructor(private http: HttpClient) { 
-    this.baseUrl = "http://localhost:3000"
+  constructor(private http: HttpClient) {
+    this.baseUrl = 'http://localhost:3000/expense';
   }
 
-  getAll(): Observable<Expense[]>
-  {
-    return this.http.get<Expense[]>(`${this.baseUrl}/expense/user/2`)
+  getAllByUser(): Observable<Expense[]> {
+    return this.http.get<Expense[]>(`${this.baseUrl}/user/${localStorage.getItem('userId')}`);
   }
 
-  getById(id:string)/*: Observable<Expense>*/
-  {
-    return this.http.get/*<Expense>*/(`${this.baseUrl}/expense/${id}`)
-
+  getById(id: string /*: Observable<Expense>*/) {
+    return this.http.get(/*<Expense>*/ `${this.baseUrl}/${id}`);
   }
 
   create(expense: Expense): Observable<Expense> {
-    return this.http.post<Expense>(`${this.baseUrl}/expense`, expense);
+    return this.http.post<Expense>(`${this.baseUrl}/`, expense);
   }
 
-  updateById(id: string, body:any){
-    return this.http.put(`${this.baseUrl}/expense/${id}`,body)
+  updateById(id: string, body: any) {
+    return this.http.put(`${this.baseUrl}/${id}`, body);
   }
 }

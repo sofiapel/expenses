@@ -7,7 +7,7 @@ import { ExpenseService } from '../services/expense/expense.service';
 import { InputTextModule } from 'primeng/inputtext';
 import { DatePickerModule } from 'primeng/datepicker';
 import { ButtonModule } from 'primeng/button';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Expense } from '../interfaces/expense.interface';
 
 
@@ -20,7 +20,7 @@ import { Expense } from '../interfaces/expense.interface';
 })
 export class ExpenseAddComponent implements OnInit, OnDestroy {
   myForm:FormGroup;
-  constructor(private fb: FormBuilder,private service: ExpenseService, private route: ActivatedRoute){
+  constructor(private fb: FormBuilder,private service: ExpenseService, private route: ActivatedRoute, private router: Router){
     this.myForm = this.fb.group({
       title: ['', Validators.required],
       amount: [null, Validators.required],
@@ -50,22 +50,26 @@ export class ExpenseAddComponent implements OnInit, OnDestroy {
       this.service.updateById(this.route.snapshot.paramMap.get('id')!,this.myForm.value).subscribe({
           next: (response) => {
               this.myForm.reset(); 
+              this.router.navigate(["expense"])        
           },
           error: (err) => console.error(err)
       });
+
     }else{
-      this.service.create(this.myForm.value).subscribe({
+      this.service.create({ ...this.myForm.value, userId: localStorage.getItem('userId')}).subscribe({
         next: (response) => {
             this.myForm.reset(); 
+            this.router.navigate(["expense"])        
         },
         error: (err) => console.error(err)
+        
     });
+
     }
     
   }
   ngOnInit(): void {
     this.isAnUpdate = Boolean(this.route.snapshot.paramMap.get('id'))
-    console.log(this.isAnUpdate)
 
     if(this.isAnUpdate){
       this.service.getById(this.route.snapshot.paramMap.get('id')!).subscribe({
