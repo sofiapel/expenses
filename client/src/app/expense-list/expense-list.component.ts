@@ -13,7 +13,7 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-expense-list',
   standalone: true,
-  imports: [RouterModule,TableModule, CommonModule,ButtonModule],
+  imports: [RouterModule,TableModule, CommonModule,ButtonModule,],
   templateUrl: './expense-list.component.html',
   styleUrl: './expense-list.component.css'
 })

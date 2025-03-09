@@ -1,9 +1,9 @@
 import {
   BaseComponent
-} from "./chunk-4QHM7TUK.js";
+} from "./chunk-E22I5FLO.js";
 import {
   BaseStyle
-} from "./chunk-MIUQYFVA.js";
+} from "./chunk-3XBDTVB4.js";
 import {
   SharedModule,
   addClass,
@@ -19,7 +19,7 @@ import {
   remove,
   removeClass,
   uuid
-} from "./chunk-BO6WFU4M.js";
+} from "./chunk-ERFY7JZB.js";
 import {
   CommonModule,
   DOCUMENT,
@@ -7080,8 +7080,6 @@ export {
   SpinnerIcon,
   TimesIcon,
   TrashIcon,
-  WindowMaximizeIcon,
-  WindowMinimizeIcon,
   Ripple,
   ButtonStyle,
   ButtonClasses,
@@ -7091,4 +7089,4 @@ export {
   Button,
   ButtonModule
 };
-//# sourceMappingURL=chunk-GJRNMI6H.js.map
+//# sourceMappingURL=chunk-MH4ZP7MU.js.map

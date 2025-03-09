@@ -247,15 +247,6 @@ function setAttributes(element, attributes = {}) {
     });
   }
 }
-function createElement(type, attributes = {}, ...children) {
-  if (type) {
-    const element = document.createElement(type);
-    setAttributes(element, attributes);
-    element.append(...children);
-    return element;
-  }
-  return void 0;
-}
 function fadeIn(element, duration) {
   if (element) {
     element.style.opacity = "0";
@@ -1656,7 +1647,6 @@ export {
   relativePosition,
   appendChild,
   setAttributes,
-  createElement,
   fadeIn,
   find,
   findSingle,
@@ -1715,4 +1705,4 @@ export {
   TranslationKeys,
   TreeDragDropService
 };
-//# sourceMappingURL=chunk-BO6WFU4M.js.map
+//# sourceMappingURL=chunk-ERFY7JZB.js.map

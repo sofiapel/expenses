@@ -54,6 +54,12 @@ export class ExpenseAddComponent implements OnInit, OnDestroy {
           error: (err) => console.error(err)
       });
     }else{
+      this.service.create(this.myForm.value).subscribe({
+        next: (response) => {
+            this.myForm.reset(); 
+        },
+        error: (err) => console.error(err)
+    });
     }
     
   }
