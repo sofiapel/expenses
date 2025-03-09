@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "buildCommand": "ng build",
+    "outputDirectory": "dist/expenses",
+    "framework": "angular",
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
