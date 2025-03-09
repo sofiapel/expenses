@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Expense } from '../../interfaces/expense.interface';
+import { environment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Expense } from '../../interfaces/expense.interface';
 export class ExpenseService {
   private baseUrl: string;
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/expense';
+    this.baseUrl = `${environment.apiUrl}/expense`;
   }
 
   getAllByUser(): Observable<Expense[]> {

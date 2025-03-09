@@ -1,0 +1,1 @@
+export const environment = { apiUrl: "https://vps-4441022-x.dattaweb.com/apiv2"}
