@@ -26,11 +26,9 @@ export const loginUser = async (
       return res.status(401).json({ message: "Usuario o contraseña incorrectos" });
     }
 
-    console.log(userN);
 
     const equalPassword = await bcrypt.compare(password,userN?.dataValues.password)
 
-    console.log(equalPassword)
     
 
     if (equalPassword) {
@@ -52,7 +50,6 @@ export const register = async (
 ) => {
   try {
     const { firstName, lastName, username, password } = req.body;
-    console.log(password, username, firstName, lastName);
     if (/*!firstName || !lastName ||*/ !username || !password) {
       return res.status(400).json({ message: "Todos los campos son requeridos" });
     }
