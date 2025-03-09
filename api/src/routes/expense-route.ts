@@ -4,10 +4,10 @@ import { createExpense, getExpensesByUser, getOne, updateExpense } from "../cont
 import { validateAccess } from "../middlewares/authentication.middleware";
 const router = express.Router();
 
-router.get("/:id"/*,validateAccess()*/,asyncMiddleware(getOne));
-router.get("/user/:idUser"/*,validateAccess()*/,asyncMiddleware(getExpensesByUser));
-router.post("/"/*,validateAccess()*/,asyncMiddleware(createExpense));
-router.put("/:id",/*validateAccess(),*/asyncMiddleware(updateExpense));
+router.get("/:id",validateAccess(),asyncMiddleware(getOne));
+router.get("/user/:idUser",validateAccess(),asyncMiddleware(getExpensesByUser));
+router.post("/",validateAccess(),asyncMiddleware(createExpense));
+router.put("/:id",validateAccess(),asyncMiddleware(updateExpense));
 
 
 
