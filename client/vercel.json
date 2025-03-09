@@ -1,12 +1,12 @@
 {
-    "version": 2,
-    "buildCommand": "ng build",
-    "outputDirectory": "dist/expenses",
-    "framework": "angular",
-    "routes": [
+    "builds": [
       {
-        "src": "/(.*)",
-        "dest": "/index.html"
+        "src": "dist/tu-proyecto-angular/**/*",
+        "use": "@vercel/static"
       }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/index.html" }
     ]
   }
+  
