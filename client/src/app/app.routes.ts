@@ -13,8 +13,9 @@ export const routes: Routes = [
       { path: '', component: ExpenseListComponent },
       { path: 'add', component: ExpenseAddComponent },
       { path: ':id', component: ExpenseDetailComponent },
-      { path: 'edit/:id', component: ExpenseAddComponent },
+      { path: 'edit/:id', component: ExpenseAddComponent }
 
     ],
   },
+  { path: '**', redirectTo: 'expense', pathMatch:'full' }
 ];
